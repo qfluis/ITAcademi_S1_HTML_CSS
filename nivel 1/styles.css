@@ -5,8 +5,7 @@ body {
 }
 
 div {
-    /*min-height: 0.6rem;*/
-    height: 0.6rem;
+    height: 16px;
 }
 
 main {
@@ -15,21 +14,21 @@ main {
     margin-left:auto;
     margin-right:auto;
 
-    padding:0.8rem;
+    padding:20px;
 }
 
 header{
     background-color: black;
-    padding:0.6rem;
+    padding:16px;
 }
 
 nav {
     display: flex;
-    gap: 0.6rem 0.6rem; /*row col*/
+    gap: 16px 16px; /*row col*/
     
     background-color: #404040;
 
-    padding:0.6rem;
+    padding:16px;
 }
 
 nav div {
@@ -38,12 +37,12 @@ nav div {
 }
 
 #opcion_1, #opcion_3 {
-    flex:0 1 80px; /* flex-grow flex-shrink flex-basis   */
+    flex:0 1 80px;
 }
 
 #sub_nav {
     background-color: #F0763A;
-    padding: 0.6rem;
+    padding: 16px;
 }
 #sub_nav div{
     background-color: #FFCC5E;
@@ -52,43 +51,43 @@ nav div {
 article {
     background-color: black;
     display:flex;
-    gap: 0.6rem;    
+    gap: 16px;    
 
-    padding:0.6rem;
-    margin-top:0.6rem;
+    padding:16px;
+    margin-top:16px;
 }
-#seccion_izq {
+#seccion_izq {    
     background-color:#44465E;
-    flex:2;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-    /*align-items:flex-start;*/
-
-    gap: 0.6rem;    
-
-    padding:0.6rem;
+    flex:2;    
+    padding:16px;
+    height:auto;
 }
 
-#seccion_izq div {
-    flex: 1 1 250px;
+#seccion_izq .columnas{
+    display:flex;    
+    flex-wrap: wrap;    
+    gap: 16px;  
+    height:auto; /* Si no indico height:auto se solapa con la capa inferior */
+}
+
+#seccion_izq .columnas div {
+    flex:1 1 250px;
     background-color: #1664A4;
 }
-#seccion_izq .doble_columna {
+#seccion_izq .columna_simple {
+    margin-top:16px; 
     background-color: #6399BB;
-    flex: 1 1 800px; /* Revisar */
+    height:16px;
 }
 
 #seccion_der {
     flex:1;
     background-color: #F94C47;
+    padding: 16px;
 
     display:flex;    
-    gap: 0.3rem;
-    
-    flex-direction:column;
-    
-    padding: 0.6rem;
+    gap: 8px;    
+    flex-direction:column;    
 }
 
 #seccion_der div {
@@ -98,8 +97,8 @@ article {
 
 footer {
     background-color: black;
-    padding: 0.6rem;
-    margin-top:0.6rem;
+    padding: 16px;
+    margin-top:16px;
 }
 
 footer div {
@@ -109,69 +108,66 @@ footer div {
 
 
 /* TABLET */
-@media all and (max-width: 62rem) {   /* 992px / 16 */
+@media all and (max-width: 992px) {
     
     article {
-        background-color: Yellow;
-        display:flex;        
-        flex-wrap:wrap;
+        background-color: Yellow;        
         flex-direction: column;
-    }        
-    
-    #seccion_izq {
-        flex-grow: 1;
-        flex-basis:0px;
+    }    
+
+    #seccion_izq .columnas div {
+        /*flex: 1 1 250px;*/
+        flex-basis: 300px;        
+    }
+}
+
+/* Arreglo para que conserve la apariencia la parte central */
+@media all and (max-width: 738px) {
         
-    }
-
-    #seccion_izq div {
-        flex-basis: 300px;
-    }
-    
-    
-}
-
-/* Arreglo para que conserve la apariencia */
-@media all and (max-width: 42.5rem) { /* 680px / 16 */
-    
-    
-    #seccion_izq div {
-        flex-basis: 250px;
+    #seccion_izq .columnas div {
+        flex-basis: 230px;
     }
     
 }
-
 
 /* MOVIL */
 
-@media all and (max-width: 37.5rem) {   /* 600px / 16 */
+@media all and (max-width: 600px) {
     
+    article {
+        background-color: #FEE228;
+    }
+    #seccion_izq {
+        background-color: #09506F;
+    }
+    #seccion_izq .columna_simple {
+        background-color: #61959C;
+    }
+    #seccion_der {
+        background-color: #FD7B54;
+    }
+    #seccion_der div {
+        background-color: #FDB36B;
+    }
+
     nav {
         flex-direction: column;        
     }
 
     nav div {
-        flex-basis: 0.6rem;
+        flex-basis: 16px;
     }
 
     #opcion_1, #opcion_3 {
-        flex-basis: 0.6rem;
-        /*flex:0 1 80px;*/
+        flex-basis: 16px;        
+    }
+        
+    #seccion_izq .columnas {
+        flex-direction: column;        
     }
     
-    #seccion_izq {
-        flex-direction: column;
-        /*justify-content: flex-start;*/
-        /*flex-wrap: wrap;*/
-    }
-    
-    #seccion_izq div {
-        flex-basis: 0.6rem;
-    }
-
-    #seccion_izq .doble_columna {
-        flex-basis: 0.6rem;
-    }
-
-    
+    #seccion_izq .columnas div {
+        flex-basis: 16px;
+        background-color: #61959C;
+    }    
 }
