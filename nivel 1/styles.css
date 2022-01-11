@@ -13,7 +13,6 @@ main {
     max-width: 1200px;
     margin-left:auto;
     margin-right:auto;
-
     padding:20px;
 }
 
@@ -23,17 +22,16 @@ header{
 }
 
 nav {
-    display: flex;
-    gap: 16px 16px; /*row col*/
-    
     background-color: #404040;
-
     padding:16px;
+    
+    display: flex;
+    gap: 16px;   
 }
 
 nav div {
-    flex:1;
     background-color: #EA584B;
+    flex:1;    
 }
 
 #opcion_1, #opcion_3 {
@@ -50,41 +48,43 @@ nav div {
 
 article {
     background-color: black;
-    display:flex;
-    gap: 16px;    
-
     padding:16px;
     margin-top:16px;
+
+    display:flex;
+    gap: 16px;        
 }
 #seccion_izq {    
     background-color:#44465E;
-    flex:2;    
     padding:16px;
     height:auto;
+
+    flex:2;     
 }
 
 #seccion_izq .columnas{
+    height:auto; /* Si no indico height:auto se solapa con la capa inferior */
+
     display:flex;    
     flex-wrap: wrap;    
-    gap: 16px;  
-    height:auto; /* Si no indico height:auto se solapa con la capa inferior */
+    gap: 16px;      
 }
 
 #seccion_izq .columnas div {
-    flex:1 1 250px;
     background-color: #1664A4;
+    flex:1 1 250px;    
 }
 #seccion_izq .columna_simple {
-    margin-top:16px; 
     background-color: #6399BB;
     height:16px;
+    margin-top:16px; 
 }
 
-#seccion_der {
-    flex:1;
+#seccion_der {    
     background-color: #F94C47;
     padding: 16px;
 
+    flex:1;
     display:flex;    
     gap: 8px;    
     flex-direction:column;    
@@ -116,7 +116,6 @@ footer div {
     }    
 
     #seccion_izq .columnas div {
-        /*flex: 1 1 250px;*/
         flex-basis: 300px;        
     }
 }
@@ -167,7 +166,7 @@ footer div {
     }
     
     #seccion_izq .columnas div {
-        flex-basis: 16px;
         background-color: #61959C;
+        flex-basis: 16px;
     }    
 }
