@@ -1,6 +1,5 @@
 body {
-    background-color:gray;  
-    
+    background-color:gray;      
 }
 
 div { /*  ????*/
@@ -50,20 +49,17 @@ nav div {
 article {
     background-color: black;
     display:flex;
-    gap: 0.6rem;
-    
+    gap: 0.6rem;    
 
     padding:0.6rem;
     margin-top:0.6rem;
-
 }
 #seccion_izq {
     background-color:#44465E;
     flex:2;
     display:flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
-    
+    gap: 0.6rem;    
 
     padding:0.6rem;
 }
@@ -91,7 +87,6 @@ article {
     align-items:flex-start;*/
     
     padding: 0.6rem;
-
 }
 
 #seccion_der div {
