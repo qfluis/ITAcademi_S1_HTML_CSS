@@ -102,7 +102,92 @@ nav ul li a:hover {
     color: rgba(238,116,99,0.8);
     background-color: rgba(128,128,128,0.3);
     /*opacity:0.8;*/
+}
 
+#contenido {    
+    margin-top: 0.5rem;
+    display:flex;
+    gap:0.5rem;
+
+}
+
+#articulos {
+    background-color: #d8d7d7;
+    flex: 1 1 88%;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    padding: 0.5rem;
+}
+
+#articulos article {
+    flex: 1 1 25rem;
+
+    padding: 0.5rem;
+    background-color: #f5f1f1;
+}
+#articulos article img{
+    width:100%;
+    height: 200px;
+    object-fit: cover;
+}
+.fecha {
+    color: #ebd790;
+    margin-top: -1.5rem;
+    margin-left: 0.2rem;
+}
+#articulos article h3 {
+    background-color: #ee7463;
+    color: white;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    margin-top:-0.7rem;
+    margin-bottom:0rem;
+}
+.columnas {
+    display:flex;
+    gap:0.5rem;
+}
+.columnas div {
+    flex: 1 1 50%;
+}
+
+.leer_mas {
+    margin-top:0rem;
+    margin-bottom:0rem;
+}
+
+.leer_mas a {
+    text-decoration: none;
+    color: #808080;
+    transition: 0.75s;
+}
+
+.leer_mas a:hover {
+    color: #ee7463;
+}
+
+#pie {
+    text-align: center;
+}
+
+aside {
+    background-color: #d8d7d7;
+    flex: 1 1 22%;
+
+    text-align: center;
+    padding:0.5rem;
+}
+
+footer {
+    text-align: center;
+    background-color: #f5f1f1;
+    
+    padding:0.5rem;
+    margin-top:0.5rem;
+    border-left: 0.5rem solid #d8d7d7;
+    border-right: 0.5rem solid #d8d7d7;
 }
 
 /* TABLET */
@@ -117,6 +202,10 @@ nav ul li a:hover {
 
     #redes {
         flex:0 1 6rem;
+    }
+
+    #contenido {    
+        flex-direction: column;
     }
 
 }
@@ -172,5 +261,12 @@ nav ul li a:hover {
         padding: 1rem;    
                 
         font-size: 1rem;
+    }
+
+    .columnas {
+        flex-direction: column;
+    }
+    .columnas p:first-child  {
+        margin-bottom: -0.5rem;
     }
 }
