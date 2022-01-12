@@ -9,14 +9,15 @@ main {
     margin-right: auto;    
 }
 #logo {    
-    flex:0 1 10rem;
+    grid-area: Logo;
 }
 #logo img {
     width:5rem;
 }
 #barra_superior {
-    display:flex;
-    /*justify-content: space-evenly;*/
+    display:grid;
+    grid-template-areas: "Logo Menu Redes";
+
     align-items: center;
 
     font-size: 1.2rem;
@@ -35,21 +36,36 @@ main {
 
 }
 nav {
-    flex: 1 1 auto;
-    justify-content: space-evenly;
-    
+    grid-area: Menu;    
 }
 
 nav ul{
     padding-left:0px;
 
-    display:flex;
-    list-style-type:none;
-    justify-content: center;
+    display:grid;
+    grid-template-areas: "Inicio Rutas Hoteles Vuelos Contacto";
+                            
+    list-style-type:none;    
 }
 
+.Inicio{
+    grid-area: Inicio;
+}
+.Rutas{
+    grid-area: Rutas;
+}
+.Hoteles{
+    grid-area: Hoteles;
+}
+.Vuelos{
+    grid-area: Vuelos;
+}
+.Contacto{
+    grid-area: Contacto;
+}
+
+
 nav ul li {
-    flex: 1 1 4rem;
     text-align: center;
 
     transition: border-color 0.75s;    
@@ -65,16 +81,17 @@ nav ul li a:hover {
 }
 
 #redes {
-    flex:0 1 10rem;
-    justify-self: end;
-    display:flex;
-    gap: 1rem;
+    grid-area:Redes;
+    display: grid;    
+    grid-template-areas: "Facebook Twitter";
+    grid-gap:1rem;
     margin-left:auto;
-
-    justify-content: end;
 }
-#redes div{
-    flex:0;
+#redes .Facebook{
+    grid-area: "Facebook";
+}
+#redes .Twitter{
+    grid-area: "Twitter";
 }
 
 #redes div a:hover {
@@ -110,8 +127,9 @@ nav ul li a:hover {
 
 #contenido {    
     margin-top: 0.5rem;
-    display:flex;
-    gap:0.5rem;
+    display:grid;
+    grid-gap:0.5rem;
+    grid-template-areas: "Articulos Articulos Articulos Articulos Lateral";
 
     animation: aparecerBottom 1s;
 
@@ -119,17 +137,36 @@ nav ul li a:hover {
 
 #articulos {
     background-color: #d8d7d7;
-    flex: 1 1 88%;
-    display:flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    grid-area: Articulos;
+
+
+    display:grid;
+    grid-template-areas: "cultura gastronomia"
+                        "turismo vida_nocturna"
+                        "pie pie";
+    
+    grid-gap: 0.5rem;
 
     padding: 0.5rem;
 }
+#articulos .cultura{
+    grid-area: cultura;
+}
+
+#articulos .gastronomia {
+    grid-area: gastronomia;
+}
+
+#articulos .turismo {
+    grid-area: turismo;
+}
+
+#articulos .vida_nocturna {
+    grid-area: vida_nocturna;
+}
 
 #articulos article {
-    flex: 1 1 25rem;
-
+    
     padding: 0.5rem;
     background-color: #f5f1f1;
 }
@@ -152,11 +189,16 @@ nav ul li a:hover {
     margin-bottom:0rem;
 }
 .columnas {
-    display:flex;
-    gap:0.5rem;
+    display:grid;
+    grid-template-areas: "col1 col2";
+    grid-gap:1rem;
 }
-.columnas div {
-    flex: 1 1 50%;
+.columnas .col1 {
+    grid-area: col1;
+}
+
+.columnas .col2{
+    grid-area: col2;
 }
 
 .leer_mas {
@@ -176,11 +218,12 @@ nav ul li a:hover {
 
 #pie {
     text-align: center;
+    grid-area: pie;
 }
 
 aside {
     background-color: #d8d7d7;
-    flex: 1 1 22%;
+    grid-area: Lateral;
 
     text-align: center;
     padding:0.5rem;
@@ -202,16 +245,10 @@ footer {
         font-size: 1rem;
     }
 
-    #logo {    
-        flex:0 1 6rem;
-    }
-
-    #redes {
-        flex:0 1 6rem;
-    }
-
     #contenido {    
-        flex-direction: column;
+        grid-template-areas: 
+            "Articulos Articulos Articulos Articulos Articulos"
+            "Lateral Lateral Lateral Lateral Lateral";
     }
 
 }
@@ -219,23 +256,27 @@ footer {
 /* MOVIL */
 @media all and (max-width: 700px) { /*600*/
     #barra_superior {
-        flex-direction: column;
+        grid-template-areas: 
+            "Logo"
+            "Menu"
+            "Redes";
     }
 
     nav ul {
-        /*flex-direction: column;*/
-        flex-wrap: wrap;
-
-        align-items: stretch; /* !!!! */
-        gap: 0.1rem;
+        
+        /*align-items: stretch; /* !!!! */
+        grid-template-areas: 
+            "Inicio"
+            "Rutas"
+            "Hoteles"
+            "Vuelos"
+            "Contacto";
+        grid-gap: 0.1rem;
     }
 
-    nav ul li {
-        flex-basis: 80%;
+    nav ul li {        
         border: 0.1rem solid rgb(231, 231, 231);
         padding: 0.2rem;
-        width: 90%;
-        /*background-color: grey;*/
     }
 
     nav ul li a:hover {        
@@ -251,6 +292,7 @@ footer {
         flex-basis:1rem;
         justify-content: center;
         margin-left:0px;
+        margin-bottom: 1rem;
     }
     #redes div {
         height: 0px;
@@ -269,8 +311,20 @@ footer {
         font-size: 1rem;
     }
 
+    #articulos{
+        grid-template-areas: 
+                "cultura"
+                "gastronomia"
+                "turismo"
+                "vida_nocturna"
+                "pie";
+    }
+
     .columnas {
-        flex-direction: column;
+        grid-template-areas: 
+                "col1"
+                "col2";
+        grid-gap:0rem;
     }
     .columnas p:first-child  {
         margin-bottom: -0.5rem;
